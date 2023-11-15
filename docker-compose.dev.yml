@@ -16,8 +16,6 @@ services:
       - MONGO_USER=tobi
       - MONGO_PASSWORD=samuel
       - SESSION_SECRET=secret
-      - REDIS_URL=redis
-      - REDIS_PORT=6379
     command: npm run dev
   
   mongodb:

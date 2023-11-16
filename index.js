@@ -14,7 +14,7 @@ const postRouter = require("./routes/postRoutes");
 const app = express();
 app.use(cors());
 
-connectWithRetry();
+//connectWithRetry();
 
 const client = redis.createClient({
   url: `${REDIS_URL}://${REDIS_URL}:${REDIS_PORT}`,
@@ -41,6 +41,11 @@ app.use(
 );
 
 app.use(express.json());
+
+app.get("/api/v1", (req, res) => {
+  res.send("<h2>Hi  There</h2>");
+  console.log("yeah it ran");
+});
 
 app.use("/api/v1/auth", userRouter);
 app.use("/api/v1/posts", postRouter);

@@ -6,7 +6,7 @@ const {
   MONGO_PORT,
 } = require("../config/config");
 
-const mongoURL = `mongodb://tobi:samuel@127.0.0.1:27017/?authSource=admin`;
+const mongoURL = `mongodb://tobi:samuel@ElasticIP:27017/?authSource=admin`;
 
 mongoose
   .connect(mongoURL)

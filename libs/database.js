@@ -6,9 +6,8 @@ const {
   MONGO_PORT,
 } = require("../config/config");
 
-const mongoURL = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`;
-
-const connectWithRetry = () => {
+const connectWithRetry = async () => {
+  const mongoURL = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`;
   mongoose
     .connect(mongoURL)
     .then(() => console.log("Connected!"))

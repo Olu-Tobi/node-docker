@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
 const { REDIS_URL, SESSION_SECRET, REDIS_PORT } = require("./config/config");
 const connectWithRetry = require("./libs/database");
 

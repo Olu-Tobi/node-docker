@@ -6,7 +6,7 @@ const {
   MONGO_PORT,
 } = require("../config/config");
 
-const mongoURL = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`;
+const mongoURL = `mongodb://tobi:samuel@127.0.0.1:27017/?authSource=admin`;
 
 mongoose
   .connect(mongoURL)
@@ -15,4 +15,4 @@ mongoose
     console.log(err);
   });
 
-module.exports = connectWithRetry;
+// module.exports = connectWithRetry;

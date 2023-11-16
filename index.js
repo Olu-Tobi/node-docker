@@ -14,6 +14,8 @@ const postRouter = require("./routes/postRoutes");
 const app = express();
 app.use(cors());
 
+connectWithRetry();
+
 const client = redis.createClient({
   url: `${REDIS_URL}://${REDIS_URL}:${REDIS_PORT}`,
 });

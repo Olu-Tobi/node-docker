@@ -6,13 +6,16 @@ const {
   MONGO_PORT,
 } = require("../config/config");
 
-const mongoURL = `mongodb://tobi:samuel@ElasticIP:27017/?authSource=admin`;
+const connectWithRetry = async () => {
+  const mongoURL = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@ElasticIP:${MONGO_PORT}/?authSource=admin`;
 
-mongoose
-  .connect(mongoURL)
-  .then(() => console.log("Connected!"))
-  .catch((err) => {
-    console.log(err);
-  });
+  mongoose
+    .connect(mongoURL)
+    .then(() => console.log("Connected!"))
+    .catch((err) => {
+      console.log(err);
+      setTimeout(connectWithRetry, 5000);
+    });
+};
 
-// module.exports = connectWithRetry;
+module.exports = connectWithRetry;

@@ -12,6 +12,7 @@ const userRouter = require("./routes/userRoutes");
 const postRouter = require("./routes/postRoutes");
 
 const app = express();
+app.use(express.json());
 app.use(cors());
 
 connectWithRetry();
@@ -39,8 +40,6 @@ app.use(
     },
   })
 );
-
-app.use(express.json());
 
 app.get("/api/v1", (req, res) => {
   res.send("<h2>Ok let's have some fun with docker!!!</h2>");
